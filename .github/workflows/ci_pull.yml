@@ -1,6 +1,6 @@
-name: CI
+name: CI_pull
 on:
-  push:
+  pull_request:
     branches: [staging]
 jobs:
   build:
