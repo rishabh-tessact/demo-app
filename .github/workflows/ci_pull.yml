@@ -1,9 +1,9 @@
 name: CI_pull
 on:
   pull_request:
-    branches: [staging]
+    branches: [staging, master]
   push:
-    branches: [staging]
+    branches: [staging, master]
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -32,6 +32,11 @@ jobs:
       - name: Build Project
         if: github.event_name == 'push'
         run: yarn run build
+      - name: Create a Release
+        if: github.event_name == 'push' && github.ref == 'refs/head/master'
+        run: npx semantic-release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Deploy to staging
         if: github.event_name == 'push'
         run: npx surge --project ./build --domain tight-riddle.surge.sh
