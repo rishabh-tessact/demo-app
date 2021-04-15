@@ -1,4 +1,3 @@
-
 module.export = {
   branches: "master",
   repositoryUrl: "https://github.com/rishabh-tessact/demo-app/",
