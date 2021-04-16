@@ -33,7 +33,7 @@ class App extends Component {
                   Bundle version - <code>v{global.appVersion}</code>
                 </p>
               </header>
-              Form Added -
+              Form Adsded -
               <SignIn />
             </div>
           );
