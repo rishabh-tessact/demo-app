@@ -6,14 +6,18 @@ import "./App.css";
 var CACHE_NAME = "my-cache_name";
 var targetsToCache = ["/styles/myStyles.scss", "www.stackoverflow.com/"];
 
-document.addEventListener("install", function (event) {
-  event.waitUntil(
-    caches.open(CACHE_NAME).then(function (cache) {
-      return cache.addAll(targetsToCache);
-    })
-  );
-});
+
 class App extends Component {
+
+  componentDidMount(){
+    document.addEventListener("install", function (event) {
+      event.waitUntil(
+        caches.open(CACHE_NAME).then(function (cache) {
+          return cache.addAll(targetsToCache);
+        })
+      );
+    });
+  }
   render() {
     return (
       <CacheBuster>
