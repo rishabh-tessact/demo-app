@@ -38,7 +38,7 @@ class CacheBuster extends React.Component {
         window.location.reload(true);
 
         // delete localStorage
-        localStorage.clear()
+        localStorage.clear();
       },
     };
   }
