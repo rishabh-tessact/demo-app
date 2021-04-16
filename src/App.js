@@ -3,24 +3,17 @@ import CacheBuster from "./CacheBuster";
 import SignIn from "./SignIn";
 import "./App.css";
 
-var CACHE_NAME = 'my-cache_name';
-var targetsToCache = [
-  '/styles/myStyles.scss',
-  'www.stackoverflow.com/'
-];
+var CACHE_NAME = "my-cache_name";
+var targetsToCache = ["/styles/myStyles.scss", "www.stackoverflow.com/"];
 
-document.addEventListener('install', function(event) {
+document.addEventListener("install", function (event) {
   event.waitUntil(
-    caches.open(CACHE_NAME)
-      .then(function(cache) {
-        return cache.addAll(targetsToCache);
-      })
+    caches.open(CACHE_NAME).then(function (cache) {
+      return cache.addAll(targetsToCache);
+    })
   );
 });
 class App extends Component {
-
-
-
   render() {
     return (
       <CacheBuster>
