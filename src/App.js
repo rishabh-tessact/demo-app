@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import CacheBuster from './CacheBuster';
-import './App.css';
+import React, { Component } from "react";
+import CacheBuster from "./CacheBuster";
+import "./App.css";
 
 class App extends Component {
   render() {

@@ -1,5 +1,5 @@
-import React from 'react';
-import packageJson from '../package.json';
+import React from "react";
+import packageJson from "../package.json";
 global.appVersion = packageJson.version;
 
 // version from response - first param, local version second param
@@ -26,22 +26,22 @@ class CacheBuster extends React.Component {
       loading: true,
       isLatestVersion: false,
       refreshCacheAndReload: () => {
-        console.log('Clearing cache and hard reloading...')
+        console.log("Clearing cache and hard reloading...");
         if (caches) {
           // Service worker cache should be cleared with caches.delete()
-          caches.keys().then(function(names) {
+          caches.keys().then(function (names) {
             for (let name of names) caches.delete(name);
           });
         }
 
         // delete browser cache and hard reload
         window.location.reload(true);
-      }
+      },
     };
   }
 
   componentDidMount() {
-    fetch('/meta.json')
+    fetch("/meta.json")
       .then((response) => response.json())
       .then((meta) => {
         const latestVersion = meta.version;
