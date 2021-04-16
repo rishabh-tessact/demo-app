@@ -26,9 +26,6 @@ jobs:
           node-version: "12.x"
       - run: yarn install
       - run: yarn run format:check
-      - run: yarn test -- --coverage
-        env:
-          CI: true
       - name: Build Project
         if: github.event_name == 'push'
         run: yarn run build
