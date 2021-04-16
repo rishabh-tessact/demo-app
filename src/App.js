@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import CacheBuster from "./CacheBuster";
+import SignIn from "./SignIn";
 import "./App.css";
 
 class App extends Component {
@@ -20,6 +21,7 @@ class App extends Component {
                   Bundle version - <code>v{global.appVersion}</code>
                 </p>
               </header>
+              <SignIn />
             </div>
           );
         }}
