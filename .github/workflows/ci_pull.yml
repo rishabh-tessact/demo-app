@@ -26,6 +26,10 @@ jobs:
           node-version: "12.x"
       - run: yarn install
       - run: yarn run format:check
+
+      - name: Versioning
+        run: npm run prebuild
+
       - name: Build Project
         if: github.event_name == 'push'
         run: yarn run build
