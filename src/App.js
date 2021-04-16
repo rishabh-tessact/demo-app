@@ -1,20 +1,31 @@
-import logo from "./logo.svg";
-import "./App.css";
+import React, { Component } from 'react';
+import CacheBuster from './CacheBuster';
+import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          This is master <code>src/App.js</code> and save to reload.
-        </p>
-        <a className="App-link" href="https://reactjs.org" target="_blank" rel="noopener noreferrer">
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  render() {
+    return (
+      <CacheBuster>
+        {({ loading, isLatestVersion, refreshCacheAndReload }) => {
+          if (loading) return null;
+          if (!loading && !isLatestVersion) {
+            refreshCacheAndReload();
+          }
+
+          return (
+            <div className="App">
+              <header className="App-header">
+                <h1>Cache Busting - Example</h1>
+                <p>
+                  Bundle version - <code>v{global.appVersion}</code>
+                </p>
+              </header>
+            </div>
+          );
+        }}
+      </CacheBuster>
+    );
+  }
 }
 
 export default App;
